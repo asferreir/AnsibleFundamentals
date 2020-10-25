@@ -1,0 +1,22 @@
+---
+
+- name: New user is created
+  hosts: webservers
+  become: true
+
+  tasks:
+    - name: load variable from encrypted file
+      include_vars:
+        file: secret
+      
+    - name: Display the encrypted variable
+      debug:
+        msg: "{{ secret }}"
+      no_log: true
+    
+    - name: User get created
+      user:
+        name: "{{ username['test']['uname']}}"
+        password: "{{ username['test']['password'] }}"
+        comment: "{{ username['test']['description'] }}"
+        state: present
