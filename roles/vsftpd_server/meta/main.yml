@@ -1,0 +1,6 @@
+galaxy_info:
+    autor: Anderson S Ferreira
+    description: Role para instalar o vsftpd
+
+# This is an open source role
+license: MIT

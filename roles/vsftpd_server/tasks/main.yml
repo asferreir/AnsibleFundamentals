@@ -1,0 +1,21 @@
+# tasks file for vsftpd_server role
+
+        - name: Software is installed
+          yum:
+            name: "{{ ftp_package }}"
+            state: present
+    
+        - name: Configuration file is installed
+          template:
+            src: "{{ ftp_config_src }}"
+            dest: "{{ ftp_config_dest }}"
+            owner: root
+            group: root
+            mode: '0600'
+            setype: etc_t
+    
+        - name: Service is running
+          service:
+            name: "{{ ftp_service }}"
+            state: started
+            enabled: yes

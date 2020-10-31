@@ -1,0 +1,6 @@
+# defaults file for vsftpd_server role
+
+ftp_package: vsftpd
+ftp_service: vsftpd
+ftp_config_src: vsftpd.conf.j2
+ftp_config_dest: /etc/vsftpd/vsftpd.conf
